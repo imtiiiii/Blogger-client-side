@@ -1,4 +1,4 @@
-import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
+import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, styled, Toolbar, Tooltip, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import React, { useState } from 'react';
 
@@ -25,10 +25,12 @@ const Navbar = () => {
         setAnchorElUser(null);
     };
 
-
+    const CustomAppbar = styled(AppBar)(({ theme }) => ({
+        width: "100%", backgroundColor: "#fff", color: "black", boxShadow: "none"
+    }));
     return (
         <div>
-            <AppBar position="static">
+            <CustomAppbar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Typography
@@ -127,7 +129,7 @@ const Navbar = () => {
                         </Box>
                     </Toolbar>
                 </Container>
-            </AppBar>
+            </CustomAppbar>
         </div>
     );
 };
