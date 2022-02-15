@@ -26,18 +26,18 @@ const Navbar = () => {
     };
 
     const CustomAppbar = styled(AppBar)(({ theme }) => ({
-        width: "100%", backgroundColor: "#fff", color: "black", boxShadow: "none"
+        width: "100%", backgroundColor: "pink", color: "black", boxShadow: "none"
     }));
     return (
         <div>
             <CustomAppbar position="static">
-                <Container maxWidth="xl">
-                    <Toolbar disableGutters>
+                <Container maxWidth="xxl" sx={{ border: 0 }} >
+                    <Toolbar disableGutters sx={{ border: 2, width: "80%", mx: "auto" }}>
                         <Typography
                             variant="h6"
                             noWrap
                             component="div"
-                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                            sx={{ display: { xs: 'none', md: 'flex' } }}
                         >
                             LOGO
                         </Typography>
