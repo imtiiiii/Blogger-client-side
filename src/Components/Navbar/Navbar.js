@@ -32,19 +32,16 @@ const Navbar = () => {
         <div>
             <CustomAppbar position="static">
                 <Container maxWidth="xxl" sx={{ border: 0 }} >
-                    <Toolbar disableGutters sx={{ border: 2, width: "80%", mx: "auto" }}>
-                        {/* pc view  */}
-                        <Box sx={{ border: 3, flexGrow: 0.4 }}>
-                            <Typography
-                                variant="h6"
-                                noWrap
-                                component="div"
-                                sx={{ display: { xs: 'none', md: 'flex' } }}
-                            >
-                                LOGO
-                            </Typography>
-                        </Box>
-                        {/* mobile view */}
+                    <Toolbar disableGutters>
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                        >
+                            LOGO
+                        </Typography>
+
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 size="large"
@@ -81,7 +78,6 @@ const Navbar = () => {
                                 ))}
                             </Menu>
                         </Box>
-                        {/* mobile view */}
                         <Typography
                             variant="h6"
                             noWrap
@@ -90,8 +86,7 @@ const Navbar = () => {
                         >
                             LOGO
                         </Typography>
-                        {/* pc view */}
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, border: 3 }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page) => (
                                 <Button
                                     key={page}
@@ -102,7 +97,7 @@ const Navbar = () => {
                                 </Button>
                             ))}
                         </Box>
-                        {/* pc view */}
+
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
