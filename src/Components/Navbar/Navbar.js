@@ -1,3 +1,4 @@
+// This component is for the appbar / navbar of our page from material ui
 import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, styled, Toolbar, Tooltip, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import React, { useState } from 'react';
@@ -7,9 +8,6 @@ const Navbar = () => {
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
     const [anchorElNav, setAnchorElNav] = useState(null)
     const [anchorElUser, setAnchorElUser] = useState(null);
-
-
-
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -24,24 +22,23 @@ const Navbar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-
+    // customizing mui appbar to apply styles according to the3 design
     const CustomAppbar = styled(AppBar)(({ theme }) => ({
-        width: "100%", backgroundColor: "pink", color: "black", boxShadow: "none"
+        width: "100%", backgroundColor: "white", color: "black", boxShadow: 0.1
     }));
     return (
         <div>
             <CustomAppbar position="static">
-                <Container maxWidth="xxl" sx={{ border: 0 }} >
-                    <Toolbar disableGutters>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                <Container maxWidth="xxl"  >
+                    <Toolbar disableGutters >
+                        {/* pc version */}
+                        <Box
+
+                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, flexGrow: 0.5 }}
                         >
                             LOGO
-                        </Typography>
-
+                        </Box>
+                        {/* movile version */}
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 size="large"
@@ -78,6 +75,7 @@ const Navbar = () => {
                                 ))}
                             </Menu>
                         </Box>
+                        {/* mobile version */}
                         <Typography
                             variant="h6"
                             noWrap
@@ -86,46 +84,34 @@ const Navbar = () => {
                         >
                             LOGO
                         </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                            {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
-                                >
-                                    {page}
-                                </Button>
-                            ))}
+                        {/* pc version */}
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+                            <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
+                                HOME
+                            </Typography>
+                            <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
+                                ABOUT
+                            </Typography>
+                            <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
+                                CONTACT
+                            </Typography>
+                            <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
+                                WRITE
+                            </Typography>
+                            {/* LOGIN/LOGOUT WILL BE SHOWN ACCORDING TO THE USER'S USING STATUS */}
+                            {/* THAT MEANS IF THE USE IS NOT LOGGED IN IT WILL SHOW THE LOGIN OPTION , ELSE IT WILL SHOW LOGOUT OPTION */}
+                            <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
+                                LOGIN
+                            </Typography>
                         </Box>
 
-                        <Box sx={{ flexGrow: 0 }}>
-                            <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                                </IconButton>
-                            </Tooltip>
-                            <Menu
-                                sx={{ mt: '45px' }}
-                                id="menu-appbar"
-                                anchorEl={anchorElUser}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorElUser)}
-                                onClose={handleCloseUserMenu}
-                            >
-                                {settings.map((setting) => (
-                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center">{setting}</Typography>
-                                    </MenuItem>
-                                ))}
-                            </Menu>
+                        <Box sx={{ flexGrow: 0.5 }}>
+
+
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
+
+
                         </Box>
                     </Toolbar>
                 </Container>
