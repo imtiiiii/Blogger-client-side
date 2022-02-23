@@ -2,6 +2,7 @@
 import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, styled, Toolbar, Tooltip, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const pages = ['Products', 'Pricing', 'Blog'];
@@ -85,23 +86,24 @@ const Navbar = () => {
                             LOGO
                         </Typography>
                         {/* pc version */}
+                        {/* here react router dom will be used to navigate */}
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
                             <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
-                                HOME
+                                <Link to="/home" style={{ textDecoration: "none", color: "black" }}>HOME</Link>
                             </Typography>
                             <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
-                                ABOUT
+                                <Link to="/about" style={{ textDecoration: "none", color: "black" }}>ABOUT</Link>
                             </Typography>
                             <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
-                                CONTACT
+                                <Link to="/contact" style={{ textDecoration: "none", color: "black" }}>CONTACT</Link>
                             </Typography>
                             <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
-                                WRITE
+                                <Link to="/write" style={{ textDecoration: "none", color: "black" }}>WRITE</Link>
                             </Typography>
                             {/* LOGIN/LOGOUT WILL BE SHOWN ACCORDING TO THE USER'S USING STATUS */}
                             {/* THAT MEANS IF THE USE IS NOT LOGGED IN IT WILL SHOW THE LOGIN OPTION , ELSE IT WILL SHOW LOGOUT OPTION */}
                             <Typography component="div" variant='h6' sx={{ ml: 4, fontWeight: 'light' }}>
-                                LOGIN
+                                <Link to="/login" style={{ textDecoration: "none", color: "black" }}>LOGIN</Link>
                             </Typography>
                         </Box>
 
